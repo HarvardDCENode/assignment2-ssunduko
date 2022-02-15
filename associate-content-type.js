@@ -1,5 +1,4 @@
 var content = function (type){
-        console.log(type)
         var text;
         switch(type) {
             case '.html':

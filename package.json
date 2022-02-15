@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/HarvardDCENode/assignment2-ssunduko#readme",
   "dependencies": {
-    "log-util": "^2.3.0"
+    "alert": "^5.0.10",
+    "forever": "^4.0.3",
+    "log-util": "^2.3.0",
+    "popups": "^1.1.3"
   }
 }

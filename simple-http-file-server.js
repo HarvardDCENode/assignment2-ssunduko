@@ -1,10 +1,8 @@
-// start by navigating to the folder, and type 'node ../simple-http-file-server'
-// access the app from you browser at http://localhost:8080/ (add any arbitrary path)
-
 const http = require('http');
 const url = require('url');
 const path = require('path');
 const fs = require('fs');
+const alert = require('alert')
 
 var content = require('./associate-content-type');
 
@@ -15,13 +13,15 @@ var server = http.createServer((req, res) => {
   	// extract the pathname and query properties
 	const { pathname, query } = parsedUrl;
 
+	var local_key;
+	var local_value;
 	parsedUrl.searchParams.forEach(function(value, key) {
 		console.log(key +": "+ value);
+		alert(key +": "+ value);
 	});
 
   	var extname = String(path.extname(pathname)).toLowerCase();
   	var contentType = content(extname)
-	console.log(contentType)
 
 	// Create an absolute path to the requested file.
 	// Assume the server was started from the webroot
@@ -34,7 +34,5 @@ var server = http.createServer((req, res) => {
 	});
 });
 
-var port = 8080;
-server.listen(port, () => {
-  console.log("Listening on " + port);
-});
+server.listen(8080);
+console.log("Listening on http://127.0.0.1:8080/");
